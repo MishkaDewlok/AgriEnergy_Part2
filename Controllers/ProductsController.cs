@@ -46,6 +46,7 @@ namespace AgriEnergy.Controllers
             return View(result);
         }
 
+        //Displays products according to farmers logged in
         public async Task<IActionResult> FarmerProducts()
         {
             var query = _context.Products.AsQueryable();
