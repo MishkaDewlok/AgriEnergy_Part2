@@ -1,0 +1,45 @@
+﻿@model IEnumerable<AgriEnergy.Models.EmployeeFarmer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Farmer)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.EmployeeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Farmer.FarmerId)
+            </td>
+            
+        </tr>
+
+         <tr>
+        <td>
+        <input type="submit" onclick="location.href='@Url.Action("GoToProducts","Index", "Products")'"  value="Click to view products" />
+
+        </td>
+
+        </tr>
+}
+    </tbody>
+</table>

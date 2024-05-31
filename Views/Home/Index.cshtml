@@ -1,0 +1,75 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    .custom-card {
+        background-color: #B5C99A;
+        border-radius: 15px;
+        margin-bottom: 20px;
+    }
+</style>
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">AgriEnergy</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="EmployeeLogin">Employee Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="FarmerLogin">Farmer Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+<div class="card custom-card">
+    <div class="card-body">
+    <h1 class="display-4">WELCOME TO AGRI-ENERGY CONNECT</h1>
+
+    <p>This website is for Farmers that want to keep track of their stock.</p>
+
+    <p>If you are an employee, login or register in the employee account.</p>
+
+    <p>Farmers must be added onto the system by an employee of Agri-Energy.</p>
+
+    <p>Farmers, if you already added onto the system, please login under "farmer login".</p>
+    </div>
+</div>
+
+<div class="card custom-card">
+    <div class="card-body">
+        <h2 class="text-center mb-4"> Exciting News for Our Farmers! </h2>
+        <p>
+            Dear Farmers,<br><br>
+
+            We're thrilled to announce some exciting updates from our Farmers! <br><br>
+
+             <strong>Expanded Collection:</strong> Our new web app will support employees and farmers.<br><br>
+
+             <strong>Farmer Support:</strong> Join fellow farmers in our vibrant farmer app! Dive into uploading your products .<br><br>
+
+             <strong>Online Products:</strong> This app will allow fellow farmers to upload their products and keep track of them.<br><br>
+
+             <strong>Community Engagement:</strong> We're committed to fostering a vibrant agricultural community. Stay tuned! <br><br>
+
+            Visit us today to experience these updates firsthand and immerse yourself in the wonderful world of agrizones!<br><br>
+
+            Happy Farming,<br>
+            Agri-Energy Connect
+        </p>
+    </div>
+</div>

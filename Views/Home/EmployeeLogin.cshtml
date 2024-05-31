@@ -1,0 +1,99 @@
+﻿@{
+    ViewData["Title"] = "EMPLOYEE LOGIN";
+}
+@{
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewData["Title"]</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <style>
+            body {
+                background-color: #f0fff0; /* Light green background */
+                font-family: 'Georgia', serif;
+            }
+
+            .login-container {
+                max-width: 400px;
+                margin: 50px auto;
+                padding: 20px;
+                border-radius: 10px;
+                background-color: #ffffff; /* White background for the form */
+                box-shadow: 0px 0px 10px 0px #aaa;
+            }
+
+                .login-container h2 {
+                    text-align: center;
+                    color: #4CAF50; /* Green tone */
+                }
+
+                .login-container label {
+                    font-size: 16px;
+                    font-style: italic;
+                    color: #4CAF50; /* Green tone */
+                }
+
+                .login-container .form-control {
+                    border-radius: 5px;
+                }
+
+                .login-container .btn {
+                    background-color: #4CAF50; /* Green tone */
+                    color: white;
+                    width: 100%;
+                }
+
+                    .login-container .btn:hover {
+                        background-color: #45a049; /* Darker green on hover */
+                    }
+        </style>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="container-fluid">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">AgriEnergy</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="FarmerLogin">Farmer Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+
+
+
+        <div class="login-container">
+            <h2>Employee Login</h2>
+            @using (Html.BeginForm("EmployeeLogin", "Employees", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="form-group">
+                    <label for="employeeUserName">Username</label>
+                    <input type="text" class="form-control" id="employeeUserName" name="employeeUserName" required>
+                </div>
+                <div class="form-group">
+                    <label for="employeePassword">Password</label>
+                    <input type="password" class="form-control" id="employeePassword" name="employeePassword" required>
+                </div>
+                <button type="submit" class="btn btn-success">Login</button>
+            }
+        </div>
+    </body>
+    </html>
+}
