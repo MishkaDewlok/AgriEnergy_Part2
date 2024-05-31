@@ -59,3 +59,7 @@ For employees:
 10. You can also choose to search for a farmer by their ID, and filter the products they have added by the ProductCategory and StartDate and End date. To do this, click on the "Filter" tab on the ribbon above.
 11. You will be redirected to the screen to search and filter based on your criteria. The result will be displayed below.
 <img width="1440" alt="Screenshot 2024-05-31 at 23 57 23" src="https://github.com/MishkaDewlok/AgriEnergy_Part2/assets/104732895/c3ed3ee3-d5a9-418a-a78a-bbe7002c43f7">
+
+Final comments:
+Thank you for using the Agri-Energy webapp!
+The developer, Mishka, ST10219921, is open to receiving feedback and improvements as well as comments. Be sure to let us know!
