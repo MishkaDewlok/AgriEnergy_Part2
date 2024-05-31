@@ -6,84 +6,146 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product List</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
+            background-color: #f0fff0; /* Light green background */
+            font-family: 'Georgia', serif;
             padding: 20px;
         }
 
-        .table {
+        .navbar {
+            background-color: #ffffff; /* White background for navbar */
+            border-bottom: 2px solid #4CAF50; /* Green border */
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+            .navbar a {
+                color: #4CAF50;
+                text-decoration: none;
+                margin-right: 15px;
+            }
+
+                .navbar a:hover {
+                    text-decoration: underline;
+                }
+
+        .container-fluid {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .navbar-toggler {
+            display: none; /* Hide the toggler button for simplicity */
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        .table-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin-top: 20px;
         }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+            .table th, .table td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+
+            .table th {
+                background-color: #4CAF50;
+                color: white;
+            }
+
+            .table tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+        .alert {
+            background-color: #ffcc00;
+            padding: 10px;
+            border-radius: 5px;
+            color: #555;
+        }
+
+        .add-product {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 15px;
+        }
+
+            .add-product:hover {
+                background-color: #45a049;
+            }
     </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">AgriEnergy</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li> 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="FarmerProducts">Products</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-
-                    </ul>
+                <div>
+                    <a href="@Url.Action("Index", "Home")">AgriEnergy</a>
+                </div>
+                <div>
+                    <a href="@Url.Action("Index", "Home")">Home</a>
+                    <a href="@Url.Action("FarmerProducts", "Products")">Products</a>
+                    <a href="@Url.Action("Privacy", "Home")">Privacy</a>
                 </div>
             </div>
         </nav>
     </header>
 
-    <p>
-        <a asp-action="Create">Add Product</a>
-    </p>
+    <h1>Product List</h1>
 
+    <a href="@Url.Action("Create")" class="add-product">Add Product</a>
 
-    @if (Model.Any())
-    {
-        <table class="table table-striped">
-            <thead class="table-dark">
-                <tr>
-                    <th>Farmer</th>
-                    <th>Category</th>
-                    <th>Production Date</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var product in Model)
-                {
+    <div class="table-container">
+        @if (Model.Any())
+        {
+            <table class="table">
+                <thead>
                     <tr>
-                        <td>@product.Farmer</td>
-                        <td>@product.ProductCategory</td>
-                        <td>@product.ProductionDate.ToString("yyyy-MM-dd")</td>
-                        <td>@product.ProductPrice.ToString("C2")</td>
-                        <td>@product.ProductQuantity</td>
+                        <th>Farmer</th>
+                        <th>Category</th>
+                        <th>Production Date</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
                     </tr>
-                }
-            </tbody>
-        </table>
-    }
-    else
-    {
-        <div class="alert alert-warning" role="alert">
-            No products found
-        </div>
-    }
+                </thead>
+                <tbody>
+                    @foreach (var product in Model)
+                    {
+                        <tr>
+                            <td>@product.Farmer</td>
+                            <td>@product.ProductCategory</td>
+                            <td>@product.ProductionDate.ToString("yyyy-MM-dd")</td>
+                            <td>@product.ProductPrice.ToString("C2")</td>
+                            <td>@product.ProductQuantity</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <div class="alert" role="alert">
+                No products found
+            </div>
+        }
+    </div>
 </body>
-
-
-
 </html>
