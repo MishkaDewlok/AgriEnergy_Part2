@@ -32,6 +32,63 @@ Steps to access the program:
 5. The program will now begin to build and run.
 6. The app will now open in a localhost port on the desktops local web browser and open on the home page.
 
+**Database setup: **
+1. Open SSMS
+2. Connect to the server
+3. Create a database called "AgriEnergy". Use the statement CREATE DATABASE AgriEnergy, then execute the statement.
+4. Switch the database to AgriEnergy.
+5. Create the following tables. Use the below scripts. Then execute the scripts.
+   
+Create table Farmers(
+farmerID int identity (1,1) primary key not null,
+farmerUserName varchar(75) not null,
+farmerPassword varchar(75) not null
+);
+
+
+Create table Employees(
+employeeID int identity (1,1) primary key not null,
+employeeUserName varchar(75) not null,
+employeePassword varchar(75) not null
+);
+
+
+Create table Products(
+productID int identity (1,1) primary key not null,
+productPrice decimal (10,2) not null,
+productQuantity integer not null,
+productCategory varchar(150) not null,
+productionDate DateTime not null,
+farmerID int FOREIGN KEY (farmerID) REFERENCES Farmers(farmerID)
+);
+
+5. Insert the following data. Then execute the scripts.
+6. -- Inserting data into the Farmers table
+INSERT INTO Farmers (farmerUserName, farmerPassword) VALUES ('farmer1', '1234');
+INSERT INTO Farmers (farmerUserName, farmerPassword) VALUES ('mary_agr', 'secure456');
+INSERT INTO Farmers (farmerUserName, farmerPassword) VALUES ('alex_ranch', 'qwerty789');
+INSERT INTO Farmers (farmerUserName, farmerPassword) VALUES ('lucas_cult', 'asdfgh123');
+INSERT INTO Farmers (farmerUserName, farmerPassword) VALUES ('emily_grow', 'zxcvbn456');
+
+-- Inserting data into the Employees table
+INSERT INTO Employees (employeeUserName, employeePassword) VALUES ('emp1', '1234');
+INSERT INTO Employees (employeeUserName, employeePassword) VALUES ('sarah_work', 'work456');
+INSERT INTO Employees (employeeUserName, employeePassword) VALUES ('dave_help', 'help789');
+INSERT INTO Employees (employeeUserName, employeePassword) VALUES ('nina_staff', 'staff123');
+INSERT INTO Employees (employeeUserName, employeePassword) VALUES ('jake_team', 'team456');
+
+-- Inserting data into the Products table
+INSERT INTO Products (productPrice, productQuantity, productCategory, productionDate, farmerID) VALUES (19.99, 100, 'Vegetables', '2024-01-01', 1);
+INSERT INTO Products (productPrice, productQuantity, productCategory, productionDate, farmerID) VALUES (29.99, 200, 'Fruits', '2024-01-05', 2);
+INSERT INTO Products (productPrice, productQuantity, productCategory, productionDate, farmerID) VALUES (9.99, 50, 'Herbs', '2024-01-10', 3);
+INSERT INTO Products (productPrice, productQuantity, productCategory, productionDate, farmerID) VALUES (15.99, 150, 'Grains', '2024-01-15', 4);
+INSERT INTO Products (productPrice, productQuantity, productCategory, productionDate, farmerID) VALUES (25.99, 80, 'Dairy', '2024-01-20', 5);
+INSERT INTO Products (productPrice, productQuantity, productCategory, productionDate, farmerID) VALUES (12.99, 120, 'Meat', '2024-01-25', 1);
+INSERT INTO Products (productPrice, productQuantity, productCategory, productionDate, farmerID) VALUES (17.99, 90, 'Poultry', '2024-01-30', 2);
+INSERT INTO Products (productPrice, productQuantity, productCategory, productionDate, farmerID) VALUES (8.99, 60, 'Fish', '2024-02-01', 3);
+INSERT INTO Products (productPrice, productQuantity, productCategory, productionDate, farmerID) VALUES (13.99, 110, 'Eggs', '2024-02-05', 4);
+INSERT INTO Products (productPrice, productQuantity, productCategory, productionDate, farmerID) VALUES (21.99, 70, 'Honey', '2024-02-10', 5);
+
 Usage Guide:
 For Farmers:
 
