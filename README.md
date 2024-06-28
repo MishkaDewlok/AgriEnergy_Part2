@@ -61,7 +61,7 @@ productionDate DateTime not null,
 farmerID int FOREIGN KEY (farmerID) REFERENCES Farmers(farmerID)
 ); <br/>
 
-5. Insert the following data. Then execute the scripts. <br/>
+6. Insert the following data. Then execute the scripts. <br/>
  -- Inserting data into the Farmers table
 INSERT INTO Farmers (farmerUserName, farmerPassword) VALUES ('farmer1', '1234');
 INSERT INTO Farmers (farmerUserName, farmerPassword) VALUES ('mary_agr', 'secure456');
