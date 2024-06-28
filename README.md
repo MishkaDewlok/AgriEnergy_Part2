@@ -1,6 +1,6 @@
 # AgriEnergy Connect - ReadMe File - ST10219921
 
-**Introduction:**
+**Introduction:** <br/>
 The Agri-Energy Connect Web App is a web-based application designed to help manage information about farmers and their products. It includes features for farmers to add and manage their products and for employees to manage farmer profiles and view/filter products. The system ensures secure access through role-based authentication and provides a responsive, user-friendly interface.
 
 **Features:**
