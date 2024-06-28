@@ -52,7 +52,6 @@ employeeUserName varchar(75) not null,
 employeePassword varchar(75) not null
 ); <br/>
 
-
 Create table Products(
 productID int identity (1,1) primary key not null,
 productPrice decimal (10,2) not null,
@@ -63,7 +62,7 @@ farmerID int FOREIGN KEY (farmerID) REFERENCES Farmers(farmerID)
 ); <br/>
 
 5. Insert the following data. Then execute the scripts. <br/>
-6. -- Inserting data into the Farmers table
+ -- Inserting data into the Farmers table
 INSERT INTO Farmers (farmerUserName, farmerPassword) VALUES ('farmer1', '1234');
 INSERT INTO Farmers (farmerUserName, farmerPassword) VALUES ('mary_agr', 'secure456');
 INSERT INTO Farmers (farmerUserName, farmerPassword) VALUES ('alex_ranch', 'qwerty789');
