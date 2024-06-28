@@ -18,4 +18,5 @@ public partial class Product
     public int? FarmerId { get; set; }
 
     public virtual Farmer? Farmer { get; set; }
+
 }

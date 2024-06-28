@@ -4,7 +4,6 @@
     ViewData["Title"] = "Index";
 }
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -111,8 +110,6 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
-
-
                     </ul>
                 </div>
             </div>
@@ -122,26 +119,22 @@
     <div class="container">
         <h1>@ViewData["Title"]</h1>
 
-       
-        
+        <! Product Name Input -->
+        <div class="form-group">
+            <label for="productName">Product Name:</label>
+            <input type="text" id="productName" name="productName" class="form-control" placeholder="Enter Product Name">
+        </div>
+
+
         <table>
             <thead>
                 <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.ProductPrice)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.ProductQuantity)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.ProductCategory)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.ProductionDate)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Farmer)
-                    </th>
+                    <th>@Html.DisplayNameFor(model => model.ProductPrice)</th>
+                    <th>@Html.DisplayNameFor(model => model.ProductQuantity)</th>
+                    <th>@Html.DisplayNameFor(model => model.ProductCategory)</th>
+                    <th>@Html.DisplayNameFor(model => model.ProductionDate)</th>
+                    <th>@Html.DisplayNameFor(model => model.Farmer.FarmerId)</th>
+                    
                     <th></th>
                 </tr>
             </thead>
@@ -149,22 +142,16 @@
                 @foreach (var item in Model)
                 {
                     <tr>
+                        <td>@Html.DisplayFor(modelItem => item.ProductPrice)</td>
+                        <td>@Html.DisplayFor(modelItem => item.ProductQuantity)</td>
+                        <td>@Html.DisplayFor(modelItem => item.ProductCategory)</td>
+                        <td>@Html.DisplayFor(modelItem => item.ProductionDate)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Farmer.FarmerId)</td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.ProductPrice)
+                            <a asp-action="Edit" asp-route-id="@item.ProductId">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.ProductId">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.ProductId">Delete</a>
                         </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ProductQuantity)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ProductCategory)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ProductionDate)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Farmer.FarmerId)
-                        </td>
-                        
                     </tr>
                 }
             </tbody>

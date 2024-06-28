@@ -169,6 +169,12 @@ namespace AgriEnergy.Controllers
             return View(searchOutput);
         }
 
+        public async Task<IActionResult> Index()
+        {
+            // Example: Get all products with associated farmers
+            var products = await _context.Products.Include(p => p.Farmer).ToListAsync();
+            return View(products);
+        }
 
 
         // GET: Products/Edit/5

@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Product</title>
+    <title>@ViewData["Title"]</title>
     <style>
         body {
             background-color: #f0fff0; /* Light green background */
@@ -17,89 +17,85 @@
             padding: 20px;
         }
 
-        h1, h4 {
-            color: #4CAF50; /* Green color */
+        h1 {
+            color: #4CAF50; /* Green tone for headers */
         }
 
-        .form-container {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .control-label {
-            color: #4CAF50;
+        .form-group label {
+            font-size: 16px;
+            font-style: italic;
+            color: #4CAF50; /* Green tone for labels */
         }
 
         .form-control {
-            border: 1px solid #4CAF50;
-            padding: 10px;
             width: 100%;
+            padding: 8px;
+            margin: 5px 0 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
 
         .btn-primary {
-            background-color: #4CAF50;
+            background-color: #4CAF50; /* Green button */
             border: none;
             padding: 10px 20px;
             color: white;
             cursor: pointer;
+            border-radius: 5px;
         }
 
             .btn-primary:hover {
-                background-color: #45a049;
+                background-color: #45a049; /* Darker green on hover */
             }
 
         .text-danger {
-            color: #d9534f;
+            color: #dc3545; /* Red for validation messages */
         }
-
-        a {
-            color: #4CAF50;
-            text-decoration: none;
-        }
-
-            a:hover {
-                text-decoration: underline;
-            }
     </style>
 </head>
 <body>
     <h1>Create</h1>
-    <h4>Product</h4>
-    <hr />
-    <div class="form-container">
+
+    <div>
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
             <div class="form-group">
                 <label asp-for="ProductPrice" class="control-label"></label>
                 <input asp-for="ProductPrice" class="form-control" />
                 <span asp-validation-for="ProductPrice" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="ProductQuantity" class="control-label"></label>
                 <input asp-for="ProductQuantity" class="form-control" />
                 <span asp-validation-for="ProductQuantity" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="ProductCategory" class="control-label"></label>
-                <input asp-for="ProductCategory" class="form-control" />
+                <select asp-for="ProductCategory" class="form-control">
+                    <option value="">Select Category</option>
+                    <option value="Category1">Fruit</option>
+                    <option value="Category2">Veg</option>
+                    <option value="Category3">Plants</option>
+                    <!-- Add more options as needed -->
+                </select>
                 <span asp-validation-for="ProductCategory" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="ProductionDate" class="control-label"></label>
                 <input asp-for="ProductionDate" class="form-control" />
                 <span asp-validation-for="ProductionDate" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="FarmerId" class="control-label"></label>
-                <select asp-for="FarmerId" class="form-control" asp-items="ViewBag.FarmerId"></select>
+                <input asp-for="FarmerId" class="form-control" />
+                <span asp-validation-for="FarmerId" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
