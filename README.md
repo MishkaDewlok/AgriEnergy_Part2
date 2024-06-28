@@ -32,7 +32,7 @@ Steps to access the program:
 5. The program will now begin to build and run.
 6. The app will now open in a localhost port on the desktops local web browser and open on the home page.
 
-**Database setup: **
+**Database setup:**
 1. Open SSMS
 2. Connect to the server
 3. Create a database called "AgriEnergy". Use the statement CREATE DATABASE AgriEnergy, then execute the statement.
